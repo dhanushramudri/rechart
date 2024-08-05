@@ -18,6 +18,7 @@ const DropdownContent = styled.div`
   z-index: 1;
   width: 250px;
   border: 1px solid rgba(255, 255, 255, 0.404);
+  color: #eeeeee;
 
   ${DropdownContainer}:hover & {
     display: block;
@@ -25,7 +26,8 @@ const DropdownContent = styled.div`
 `;
 
 const DropdownItem = styled.div`
-  color: white;
+  color: ${({ mid }) =>
+    mid ? "#a0a0a0" : "#eeeeee"}; /* Lighter color for mid items */
   padding: 8px 12px;
   text-decoration: none;
   display: flex; /* Use flexbox */
@@ -43,6 +45,8 @@ const DropdownItem = styled.div`
   .item-label {
     display: flex; /* Use flexbox for the label */
     align-items: center; /* Center items vertically */
+    color: ${({ mid }) =>
+      mid ? "#a0a0a0" : "white"}; /* Lighter color for mid items */
   }
 
   .mini-box {
@@ -63,6 +67,7 @@ const DropdownItem = styled.div`
 
   .item-value {
     margin-left: auto; /* Push value to the right */
+    color: #a0a0a0;
   }
 
   .divider {
@@ -95,7 +100,7 @@ const DropdownMenu = () => {
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {item.mid && <div className="divider"></div>}
-            <DropdownItem color={item.color}>
+            <DropdownItem mid={item.mid} color={item.color}>
               <div className="item-label">
                 {item.sub && <div className="sub-line"></div>}
                 {item.color && (
