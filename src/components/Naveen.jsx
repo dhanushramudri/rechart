@@ -1,76 +1,118 @@
-// Chart.js
 import React from "react";
 import {
   CartesianGrid,
+  Rectangle,
   XAxis,
   YAxis,
   Tooltip,
   ResponsiveContainer,
   BarChart,
-  Legend,
   Bar,
+  ReferenceLine,
 } from "recharts";
 import DropdownMenu from "./Dropdown";
-import styled from "styled-components";
-
 const data = [
   {
     name: "Page E",
-    updraw: 50,
+    updraw: 30,
     partial1: 50,
     partial2: 50,
     drawdown: 10550,
     startdrawdown: 10550,
+    extrabarstart: 10552,
+    extrabarend: 115,
   },
 ];
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <DropdownMenu />
-      </div>
-    );
-  }
-  return null;
-};
-
-// Styled component for the BarChart
-const StyledBarChart = styled(BarChart)`
-  .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
-    border-left: 2px solid black;
-  }
-  .recharts-bar-rectangle:last-child .recharts-rectangle {
-    border-right: 2px solid black;
-  }
-`;
 
 const Chart = () => {
   return (
     <ResponsiveContainer className={"recharts-responsive-container"}>
-      <StyledBarChart width={500} height={300} data={data}>
-        <XAxis dataKey="name" hide={true} />
+      <BarChart
+        width={500}
+        height={350}
+        data={data}
+        margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+      >
+        <XAxis dataKey="name" xAxisId={0} hide />
+        <XAxis dataKey="name" xAxisId={1} hide />
         <YAxis
           axisLine={false}
           type="number"
           domain={[10500, 10750]}
           ticks={[10500, 10550, 10600, 10650, 10700, 10750]}
-          allowDataOverflow // Set the start and end of the Y-axis
+          allowDataOverflow
+          yAxisId={0}
         />
-        <Tooltip cursor={{ fill: "transparent" }} content={<CustomTooltip />} />
-        <Legend wrapperStyle={{ borderRadius: 3 }} />
+        <YAxis
+          axisLine={false}
+          type="number"
+          allowDataOverflow
+          yAxisId={1}
+          hide
+        />
+        <Tooltip cursor={{ fill: "transparent" }} content={<DropdownMenu />} />
+        {/* Existing Bars */}
         <Bar
           className="bar1"
           dataKey="drawdown"
           stackId="a"
           fill="#141D26"
+          xAxisId={1}
           barSize={300}
-          activeDot={false}
+          radius={[0, 0, 30, 30]}
         />
-        <Bar dataKey="partial1" stackId="a" fill="#268B9F" />
-        <Bar dataKey="partial2" stackId="a" fill="#1A9289" />
-        <Bar dataKey="updraw" stackId="a" fill="#084e58" />
-      </StyledBarChart>
+        <Bar
+          dataKey="partial2"
+          stackId="a"
+          fill="#1A9289"
+          barSize={300}
+          xAxisId={1}
+        />
+        \
+        <Bar
+          dataKey="partial1"
+          stackId="a"
+          fill="#268B9F"
+          barSize={300}
+          xAxisId={1}
+        />
+        <Bar
+          dataKey="updraw"
+          stackId="a"
+          fill="#084e58"
+          barSize={300}
+          radius={[30, 30, 0, 0]}
+          xAxisId={1}
+        />
+        {/* Extra Range Bar */}
+        <Bar
+          dataKey="extrabarstart"
+          stackId="b"
+          fill="transparent"
+          barSize={25}
+          radius={[0, 0, 0, 0]}
+          isAnimationActive={false}
+          xAxisId={0}
+        />
+        <Bar
+          dataKey="extrabarend"
+          stackId="b"
+          fill="#89adfe"
+          barSize={25}
+          radius={[10, 10, 10, 10]}
+          isAnimationActive={false}
+          xAxisId={0}
+        />
+        <Bar
+          dataKey="extrabarstop"
+          stackId="b"
+          fill="transparent"
+          barSize={25}
+          radius={[0, 0, 0, 0]}
+          isAnimationActive={false}
+          xAxisId={0}
+        />
+      </BarChart>
     </ResponsiveContainer>
   );
 };
