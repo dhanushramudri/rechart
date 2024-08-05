@@ -73,7 +73,7 @@ const DropdownItem = styled.div`
   .divider {
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: #d3d3d3;
     margin-bottom: 8px;
   }
 `;
