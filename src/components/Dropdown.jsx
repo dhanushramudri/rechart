@@ -6,7 +6,7 @@ const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
   border-radius: 30px;
-  margin-left: 130px;
+  margin-left: 150px;
 `;
 
 const DropdownContent = styled.div`
