@@ -97,7 +97,7 @@ const Chart = () => {
         <Bar
           dataKey="extrabarend"
           stackId="b"
-          fill="#89adfe"
+          fill="#9087D6"
           barSize={25}
           radius={[10, 10, 10, 10]}
           isAnimationActive={false}

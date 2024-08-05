@@ -132,3 +132,9 @@ body {
   height: 100vh !important;
   width: 100% !important;
 } */
+.divider {
+  width: 80%;
+  margin: 20px auto;
+  height: 1px;
+  background-color: #fff;
+}
