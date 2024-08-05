@@ -4,6 +4,12 @@
   align-items: center;
   height: 100vh;
   background-color: #000000;
+  height: max-content;
+}
+body {
+  color: white;
+  background-color: black;
+  height: max-content;
 }
 
 .center {
