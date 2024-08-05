@@ -16,7 +16,7 @@ const DropdownContent = styled.div`
   border-radius: 30px;
   padding: 12px 16px;
   z-index: 1;
-  width: 200px;
+  width: 250px;
 
   ${DropdownContainer}:hover & {
     display: block;
@@ -53,6 +53,13 @@ const DropdownItem = styled.div`
     background-color: ${({ color }) => color || "transparent"};
   }
 
+  .sub-line {
+    width: 1cm; /* Set the width of the line */
+    height: 2px; /* Set the height of the line */
+    background-color: rgba(255, 255, 255, 0.404);
+    margin-right: 8px; /* Adjust spacing */
+  }
+
   .item-value {
     margin-left: auto; /* Push value to the right */
   }
@@ -60,12 +67,12 @@ const DropdownItem = styled.div`
 
 const items = [
   { label: "Updraw", color: "#084e58", value: "x" },
-  { label: "In. Take Profit", value: "x" },
+  { label: "In. Take Profit", value: "x", sub: true },
   { label: "Entry Close", value: "1.0567", color: "#268b9f" },
   { label: "Partial 2", value: "1.0567", color: "#268b9f" },
   { label: "Partial 1", color: "#1a9289", value: "x" },
   { label: "Drawdown", color: "#141d26", value: "x" },
-  { label: "In. Stop Loss", color: "#141d26", value: "x" },
+  { label: "In. Stop Loss", color: "#141d26", value: "x", sub: true },
   { label: "Entry and exit", type: "header" },
   { label: "In. Entry Price", value: "1.0560", color: "#8579e2" },
   { label: "Entry Price", value: "1.0562", color: "#8579e2" },
@@ -76,11 +83,11 @@ const items = [
 const DropdownMenu = () => {
   return (
     <DropdownContainer>
-      .{" "}
       <DropdownContent>
         {items.map((item, index) => (
           <DropdownItem key={index} color={item.color}>
             <div className="item-label">
+              {item.sub && <div className="sub-line"></div>}
               {item.color && (
                 <div
                   className="mini-box"
