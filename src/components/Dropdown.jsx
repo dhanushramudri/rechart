@@ -26,7 +26,9 @@ const DropdownItem = styled.div`
   color: white;
   padding: 8px 12px;
   text-decoration: none;
-  display: block;
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Distribute space between elements */
+  align-items: center; /* Align items in the center vertically */
   cursor: pointer;
   background-color: #2a2a2a; /* Dark background for items */
   border-radius: 5px;
@@ -37,8 +39,8 @@ const DropdownItem = styled.div`
   }
 
   .item-label {
-    display: flex;
-    align-items: center;
+    display: flex; /* Use flexbox for the label */
+    align-items: center; /* Center items vertically */
   }
 
   .mini-box {
@@ -46,8 +48,12 @@ const DropdownItem = styled.div`
     height: 16px;
     border-radius: 3px;
     display: inline-block;
-    margin-right: 5px; /* Adjusted spacing */
+    margin-right: 10px; /* Adjusted spacing */
     background-color: ${({ color }) => color || "transparent"};
+  }
+
+  .item-value {
+    margin-left: auto; /* Push value to the right */
   }
 `;
 
@@ -77,11 +83,12 @@ const DropdownMenu = () => {
               {item.color && (
                 <div
                   className="mini-box"
-                  style={{ backgroundColor: item.color, margin: "0 10px" }}
+                  style={{ backgroundColor: item.color }}
                 ></div>
               )}
-              {item.label} {item.value && <span>{item.value}</span>}
+              {item.label}
             </div>
+            {item.value && <div className="item-value">{item.value}</div>}
           </DropdownItem>
         ))}
       </DropdownContent>
