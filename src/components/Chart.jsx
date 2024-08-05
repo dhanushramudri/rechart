@@ -39,7 +39,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const Chart = () => (
-  <ResponsiveContainer width="100%" height={400}>
+  <ResponsiveContainer width="100%" height={600}>
     <ComposedChart
       layout="vertical"
       data={data}

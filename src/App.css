@@ -61,7 +61,7 @@ body {
   align-items: center;
   /* background-color: #282c34; */
   color: white;
-  width: 200px;
+  width: 300px;
 }
 .b1 {
   width: 100%;
@@ -86,8 +86,65 @@ body {
 
 .b4 {
   width: 100%;
-  height: 100px;
+  height: 140px;
   background-color: #141d26;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+}
+
+.center {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  /* background-color: #282c34; */
+  color: white;
+  width: 300px;
+  position: relative; /* Add relative positioning */
+}
+
+.b1,
+.b2,
+.b3,
+.b4 {
+  width: 100%;
+  height: 140px;
+}
+
+.b1 {
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background-color: #084e58;
+}
+
+.b2 {
+  background-color: #268b9f;
+}
+
+.b3 {
+  background-color: #1a9289;
+}
+
+.b4 {
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: #141d26;
+}
+
+/* Dropdown container styling */
+.dropdown-container {
+  display: none;
+  position: absolute;
+  top: 0; /* Align to the top of the parent */
+  left: 100%; /* Position to the right of the parent */
+  width: 200px;
+  margin-left: 10px; /* Space between the center and the dropdown */
+}
+
+/* Show dropdown when hovering over center or its children */
+.center:hover .dropdown-container,
+.center:hover .b1:hover ~ .dropdown-container,
+.center:hover .b2:hover ~ .dropdown-container,
+.center:hover .b3:hover ~ .dropdown-container,
+.center:hover .b4:hover ~ .dropdown-container {
+  display: block;
 }
