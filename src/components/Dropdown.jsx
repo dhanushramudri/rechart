@@ -58,13 +58,13 @@ const DropdownItem = styled.div`
 `;
 
 const items = [
-  { label: "Updraw", color: "#084e58" },
+  { label: "Updraw", color: "#084e58", value: "x" },
   { label: "In. Take Profit" },
   { label: "Entry Close", value: "1.0567", color: "#268b9f" },
   { label: "Partial 2", value: "1.0567", color: "#268b9f" },
   { label: "Partial 1" },
-  { label: "Drawdown", color: "#141d26" },
-  { label: "In. Stop Loss", color: "#141d26" },
+  { label: "Drawdown", color: "#141d26", value: "x" },
+  { label: "In. Stop Loss", color: "#141d26", value: "x" },
   { label: "Entry and exit", type: "header" },
   { label: "In. Entry Price", value: "1.0560", color: "#8579e2" },
   { label: "Entry Price", value: "1.0562", color: "#8579e2" },
@@ -75,7 +75,6 @@ const items = [
 const DropdownMenu = () => {
   return (
     <DropdownContainer>
-      Hover to see the dropdown
       <DropdownContent>
         {items.map((item, index) => (
           <DropdownItem key={index} color={item.color}>

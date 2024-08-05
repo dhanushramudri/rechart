@@ -40,7 +40,7 @@ const NewChart = () => {
         <div className="b3"></div>
         <div className="b4"></div>
         <div className="graph-container">
-          <ResponsiveContainer width="100%" height={400}>
+          <ResponsiveContainer width="100%" height={300}>
             <LineChart
               data={data}
               margin={{
