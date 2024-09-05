@@ -1,13 +1,14 @@
 import React from "react";
-import "./App.css";
 import NewChart from "./NewChart";
 import Chart from "./components/Naveen";
+import Landingpage from "./components/landingpage/Landingpage";
 
 function App() {
   return (
     <div className="App">
       {/* <NewChart /> */}
-      <Chart />
+      <Landingpage />
+      {/* <Chart /> */}
     </div>
   );
 }
