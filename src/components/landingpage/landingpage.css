@@ -340,7 +340,7 @@ body {
 .slider_container {
   display: flex;
   gap: 40px;
-  animation: slide 20s linear infinite; /* Adjust time (20s) for speed */
+  animation: slide 50s linear infinite; /* Adjust time (20s) for speed */
 }
 
 .company_container {

@@ -109,14 +109,16 @@ const Landingpage = () => {
                 <h6>+916</h6>
               </div>
             </div>
-            <div className="company_container">
-              <img src={ycombinator} alt="" />
-              <div>
-                <p className="job_role">AI/ML jobs</p>
-                <h2>15,623</h2>
-                <h6>+916</h6>
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div className="company_container" key={i}>
+                <img src={ycombinator} alt="" />
+                <div>
+                  <p className="job_role">AI/ML jobs</p>
+                  <h2>15,623</h2>
+                  <h6>+916</h6>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
